@@ -1,6 +1,6 @@
+// App.tsx
 import React, { useState, useRef, useEffect } from 'react';
-import * as S from './styles';
-
+import * as S from './styles'; // Importando estilos
 import IconComponent from './components/IconComponent';
 import AboutPopup from './components/Popups/AboutPopup';
 import ConctactPopup from './components/Popups/ConctactPopup';
@@ -11,6 +11,7 @@ import InfoPopup from './components/Popups/InfoPopup';
 import MidiasPopup from './components/Popups/MidiasPopup';
 import PastelPopup from './components/Popups/PastelPopup';
 import PortfolioPopup from './components/Popups/PortfolioPopup';
+import RAPopup from './components/Popups/RAPopup';
 
 import About from './assets/About.png';
 import Conctact from './assets/Conctact.png';
@@ -21,6 +22,7 @@ import Info from './assets/Info.png';
 import Midias from './assets/Midias.png';
 import Pastel from './assets/Pastel.png';
 import Portfolio from './assets/Portfolio.png';
+import RA from './assets/RA.png';
 
 const App: React.FC = () => {
   const [selectedPopup, setSelectedPopup] = useState<React.ReactNode | null>(null);
@@ -48,25 +50,30 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '10px' }}>
-        <IconComponent imageUrl={About} onIconClick={() => handleIconClick(<AboutPopup />)} />
-        <IconComponent imageUrl={Portfolio} onIconClick={() => handleIconClick(<PortfolioPopup />)} />
-        <IconComponent imageUrl={Conctact} onIconClick={() => handleIconClick(<ConctactPopup />)} />
-        <IconComponent imageUrl={Curiosities} onIconClick={() => handleIconClick(<CuriositiesPopup />)} />
-        <IconComponent imageUrl={Midias} onIconClick={() => handleIconClick(<MidiasPopup />)} />
-        <IconComponent imageUrl={Curriculum} onIconClick={() => handleIconClick(<CurriculumPopup />)} />
-        <IconComponent imageUrl={Info} onIconClick={() => handleIconClick(<InfoPopup />)} />
-        <IconComponent imageUrl={Entertainment} onIconClick={() => handleIconClick(<EntertainmentPopup />)} />
-        <IconComponent imageUrl={Pastel} onIconClick={() => handleIconClick(<PastelPopup />)} />
-      </div>
-      {selectedPopup && (
-        <S.PopupContainer ref={popupRef} className="popup">
-          {selectedPopup}
-          <button onClick={handleClosePopup}>Fechar</button>
-        </S.PopupContainer>
-      )}
-    </div>
+    <>
+      <S.PageContainer>
+        <S.FlexContainer> {/* Container flexível para centralizar horizontalmente */}
+          <S.IconGrid>
+            <IconComponent imageUrl={About} onIconClick={() => handleIconClick(<AboutPopup />)} />
+            <IconComponent imageUrl={Portfolio} onIconClick={() => handleIconClick(<PortfolioPopup />)} />
+            <IconComponent imageUrl={Conctact} onIconClick={() => handleIconClick(<ConctactPopup />)} />
+            <IconComponent imageUrl={Curiosities} onIconClick={() => handleIconClick(<CuriositiesPopup />)} />
+            <IconComponent imageUrl={Midias} onIconClick={() => handleIconClick(<MidiasPopup />)} />
+            <IconComponent imageUrl={Curriculum} onIconClick={() => handleIconClick(<CurriculumPopup />)} />
+            <IconComponent imageUrl={Info} onIconClick={() => handleIconClick(<InfoPopup />)} />
+            <IconComponent imageUrl={Entertainment} onIconClick={() => handleIconClick(<EntertainmentPopup />)} />
+            { /*<IconComponent imageUrl={Pastel} onIconClick={() => handleIconClick(<PastelPopup />)} /> */}
+            <IconComponent imageUrl={RA} imageSize="50%" onIconClick={() => handleIconClick(<RAPopup />)} />
+          </S.IconGrid>
+        </S.FlexContainer>
+        {selectedPopup && (
+          <S.PopupContainer ref={popupRef} className="popup">
+            {selectedPopup}
+            <button onClick={handleClosePopup}>Fechar</button>
+          </S.PopupContainer>
+        )}
+      </S.PageContainer>
+    </>
   );
 };
 
