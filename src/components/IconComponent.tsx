@@ -1,5 +1,6 @@
 // IconComponent.tsx
 import React from 'react';
+import styled from 'styled-components';
 
 interface IconProps {
   imageUrl: string;
@@ -7,10 +8,20 @@ interface IconProps {
   imageSize?: string;
 }
 
+export const IconImage = styled.img`
+  width: 4vw;
+  height: auto;
+
+  @media (max-width: 768px) {
+    width: 7vw;
+  }
+  
+`;
+
 const IconComponent: React.FC<IconProps> = ({ imageUrl, onIconClick, imageSize }) => {
   return (
     <div onClick={onIconClick}>
-      <img src={imageUrl} alt="Ícone" style={{ width: imageSize, height: imageSize }} />
+      <IconImage src={imageUrl}/>
     </div>
   );
 };
