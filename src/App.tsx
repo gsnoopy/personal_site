@@ -15,6 +15,7 @@ import JobsPopup from './components/Popups/JobsPopup';
 import PhotoPopup from './components/Popups/PhotoPopup';
 import MailPopup from './components/Popups/MailPopup';
 import PandaPopup from './components/Popups/PandaPopup';
+import TrashPopup from './components/Popups/TrashPopup';
 
 import About from './assets/About.png';
 import Conctact from './assets/Conctact.png';
@@ -30,8 +31,14 @@ import Jobs from './assets/Jobs.png';
 import Photo from './assets/Photos.png';
 import Mail from './assets/Mail.png';
 import Panda from './assets/Panda.png';
+import Trash from './assets/Trash.png';
 
 const App: React.FC = () => {
+
+  useEffect(() => {
+    document.title = 'C:\\Users\\gustavoBorges';
+  }, []);
+
   const [selectedPopup, setSelectedPopup] = useState<React.ReactNode | null>(null);
   const popupRef = useRef<HTMLDivElement>(null);
 
@@ -81,40 +88,44 @@ const App: React.FC = () => {
               <S.IconText>midias</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Curriculum} imageSize="5vw" onIconClick={() => handleIconClick(<CurriculumPopup />)} />
+              <IconComponent imageUrl={Curriculum} onIconClick={() => handleIconClick(<CurriculumPopup />)} />
               <S.IconText>curriculo.pdf</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Info} imageSize="5vw" onIconClick={() => handleIconClick(<InfoPopup />)} />
+              <IconComponent imageUrl={Info} onIconClick={() => handleIconClick(<InfoPopup />)} />
               <S.IconText>info</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Entertainment} imageSize="5vw" onIconClick={() => handleIconClick(<EntertainmentPopup />)} />
+              <IconComponent imageUrl={Entertainment} onIconClick={() => handleIconClick(<EntertainmentPopup />)} />
               <S.IconText>entretenimento</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Pastel} imageSize="5vw" onIconClick={() => handleIconClick(<PastelPopup />)} />  
+              <IconComponent imageUrl={Pastel} onIconClick={() => handleIconClick(<PastelPopup />)} />  
               <S.IconText>pastel</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={RA} imageSize="5vw" onIconClick={() => handleIconClick(<RAPopup />)} />
+              <IconComponent imageUrl={RA} onIconClick={() => handleIconClick(<RAPopup />)} />
               <S.IconText>achievements</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Jobs} imageSize="5vw" onIconClick={() => handleIconClick(<JobsPopup />)} />
+              <IconComponent imageUrl={Jobs} onIconClick={() => handleIconClick(<JobsPopup />)} />
               <S.IconText>exp.zip</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Photo} imageSize="5vw" onIconClick={() => handleIconClick(<PhotoPopup />)} />
+              <IconComponent imageUrl={Photo} onIconClick={() => handleIconClick(<PhotoPopup />)} />
               <S.IconText>images</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Mail} imageSize="5vw" onIconClick={() => handleIconClick(<MailPopup />)} />
+              <IconComponent imageUrl={Mail} onIconClick={() => handleIconClick(<MailPopup />)} />
               <S.IconText>mail</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Panda} imageSize="5vw" onIconClick={() => handleIconClick(<PandaPopup />)} />
+              <IconComponent imageUrl={Panda} onIconClick={() => handleIconClick(<PandaPopup />)} />
               <S.IconText>???</S.IconText>
+            </S.IconTextContainer>
+            <S.IconTextContainer>
+              <IconComponent imageUrl={Trash} onIconClick={() => handleIconClick(<TrashPopup />)} />
+              <S.IconText>$recycle.bin</S.IconText>
             </S.IconTextContainer>
           </S.IconGrid>
         <S.TextContainer> {/* Container para o texto */}
