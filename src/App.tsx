@@ -68,63 +68,63 @@ const App: React.FC = () => {
      <S.PageContainer>
           <S.IconGrid>
             <S.IconTextContainer>
-              <IconComponent imageUrl={About} imageSize="5vw" onIconClick={() => handleIconClick(<AboutPopup />)} />
+              <IconComponent imageUrl={About} imageSize="5vw" onIconClick={() => handleIconClick(<AboutPopup onClose={handleClosePopup} />)} />
               <S.IconText>sobre.txt</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Portfolio} imageSize="5vw" onIconClick={() => handleIconClick(<PortfolioPopup />)} />
+              <IconComponent imageUrl={Portfolio} imageSize="5vw" onIconClick={() => handleIconClick(<PortfolioPopup onClose={handleClosePopup} />)} />
               <S.IconText>portfolio</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Conctact} imageSize="5vw" onIconClick={() => handleIconClick(<ConctactPopup />)} />
+              <IconComponent imageUrl={Conctact} imageSize="5vw" onIconClick={() => handleIconClick(<ConctactPopup onClose={handleClosePopup} />)} />
               <S.IconText>contato</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Curiosities} imageSize="5vw" onIconClick={() => handleIconClick(<CuriositiesPopup />)} />
+              <IconComponent imageUrl={Curiosities} imageSize="5vw" onIconClick={() => handleIconClick(<CuriositiesPopup onClose={handleClosePopup} />)} />
               <S.IconText>curiosidades</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Midias} imageSize="5vw" onIconClick={() => handleIconClick(<MidiasPopup />)} />
+              <IconComponent imageUrl={Midias} imageSize="5vw" onIconClick={() => handleIconClick(<MidiasPopup onClose={handleClosePopup} />)} />
               <S.IconText>midias</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Curriculum} onIconClick={() => handleIconClick(<CurriculumPopup />)} />
+              <IconComponent imageUrl={Curriculum} onIconClick={() => handleIconClick(<CurriculumPopup onClose={handleClosePopup} />)} />
               <S.IconText>curriculo.pdf</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Info} onIconClick={() => handleIconClick(<InfoPopup />)} />
+              <IconComponent imageUrl={Info} onIconClick={() => handleIconClick(<InfoPopup onClose={handleClosePopup} />)} />
               <S.IconText>info</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Entertainment} onIconClick={() => handleIconClick(<EntertainmentPopup />)} />
+              <IconComponent imageUrl={Entertainment} onIconClick={() => handleIconClick(<EntertainmentPopup onClose={handleClosePopup} />)} />
               <S.IconText>entretenimento</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Pastel} onIconClick={() => handleIconClick(<PastelPopup />)} />  
+              <IconComponent imageUrl={Pastel} onIconClick={() => handleIconClick(<PastelPopup onClose={handleClosePopup} />)} />  
               <S.IconText>pastel</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={RA} onIconClick={() => handleIconClick(<RAPopup />)} />
+              <IconComponent imageUrl={RA} onIconClick={() => handleIconClick(<RAPopup onClose={handleClosePopup} />)} />
               <S.IconText>achievements</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Jobs} onIconClick={() => handleIconClick(<JobsPopup />)} />
+              <IconComponent imageUrl={Jobs} onIconClick={() => handleIconClick(<JobsPopup onClose={handleClosePopup} />)} />
               <S.IconText>exp.zip</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Photo} onIconClick={() => handleIconClick(<PhotoPopup />)} />
+              <IconComponent imageUrl={Photo} onIconClick={() => handleIconClick(<PhotoPopup onClose={handleClosePopup} />)} />
               <S.IconText>images</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Mail} onIconClick={() => handleIconClick(<MailPopup />)} />
+              <IconComponent imageUrl={Mail} onIconClick={() => handleIconClick(<MailPopup onClose={handleClosePopup} />)} />
               <S.IconText>mail</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Panda} onIconClick={() => handleIconClick(<PandaPopup />)} />
+              <IconComponent imageUrl={Panda} onIconClick={() => handleIconClick(<PandaPopup onClose={handleClosePopup} />)} />
               <S.IconText>???</S.IconText>
             </S.IconTextContainer>
             <S.IconTextContainer>
-              <IconComponent imageUrl={Trash} onIconClick={() => handleIconClick(<TrashPopup />)} />
+              <IconComponent imageUrl={Trash} onIconClick={() => handleIconClick(<TrashPopup onClose={handleClosePopup} />)} />
               <S.IconText>$recycle.bin</S.IconText>
             </S.IconTextContainer>
           </S.IconGrid>
@@ -132,10 +132,9 @@ const App: React.FC = () => {
         <p>© 2024 Gustavo Borges</p>
         </S.TextContainer>
         {selectedPopup && (
-          <S.PopupContainer ref={popupRef} className="popup">
+          <div ref={popupRef} className="popup">
             {selectedPopup}
-            <button onClick={handleClosePopup}>Fechar</button>
-          </S.PopupContainer>
+          </div>
         )}
     </S.PageContainer>
     </>
